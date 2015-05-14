@@ -1,4 +1,4 @@
-FROM adamkdean/node-libvips:latest
+FROM adamkdean/libvips:latest
 MAINTAINER Adam K Dean <adamkdean@googlemail.com>
 
 # Add Node package sources
