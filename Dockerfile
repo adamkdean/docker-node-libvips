@@ -1,23 +1,17 @@
-FROM adamkdean/libvips:latest
+FROM adamkdean/baseimage
 MAINTAINER Adam K Dean <adamkdean@googlemail.com>
 
-# Add Git and Node package sources
-RUN add-apt-repository -y ppa:git-core/ppa && \
-    curl -sL https://deb.nodesource.com/setup | sudo bash -
-
-# Install packages
-RUN apt-get install -yq \
-    git \
-    nodejs
+# Install Node.js
+RUN add-apt-repository ppa:chris-lea/node.js;\
+    apt-get update;\
+    apt-get install -y nodejs;\
+    ln -sf /usr/bin/nodejs /usr/bin/node
 
 # Select specific version of Node.js via n
 RUN npm install -g n && \
     n 0.12
 
-# Clean up
-WORKDIR /
-RUN apt-get remove -y curl automake build-essential && \
-    apt-get autoremove -y && \
-    apt-get autoclean && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Preinstall libvips
+RUN curl -s https://raw.githubusercontent.com/lovell/sharp/master/preinstall.sh | sudo bash
+
+CMD ["bash"]
