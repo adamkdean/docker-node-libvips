@@ -1,4 +1,4 @@
 # docker-node-libvips
 
-Base: adamkdean/libvips
+Base: adamkdean/libvips  
 Installs: node
