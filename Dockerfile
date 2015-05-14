@@ -2,7 +2,7 @@ FROM adamkdean/libvips:latest
 MAINTAINER Adam K Dean <adamkdean@googlemail.com>
 
 # Add Node package sources
-RUN add-apt-repository -y ppa:git-core/ppa
+RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
 
 # Install packages
 RUN apt-get install -yq nodejs
