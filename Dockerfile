@@ -1,11 +1,14 @@
 FROM adamkdean/libvips:latest
 MAINTAINER Adam K Dean <adamkdean@googlemail.com>
 
-# Add Node package sources
-RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
+# Add Git and Node package sources
+RUN add-apt-repository -y ppa:git-core/ppa; \
+    curl -sL https://deb.nodesource.com/setup | sudo bash -
 
 # Install packages
-RUN apt-get install -yq nodejs
+RUN apt-get install -yq \
+    git \
+    nodejs
 
 # Select specific version of Node.js via n
 RUN npm install -g n && \
