@@ -1,4 +1,3 @@
 # docker-node-libvips
 
-Base: adamkdean/baseimage
-Installs: node 0.12, libvips
+This is now deprecated. Please see [bravissimolabs/docker-node-libvips](https://github.com/bravissimolabs/docker-node-libvips).
